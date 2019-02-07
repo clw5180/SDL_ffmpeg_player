@@ -68,17 +68,23 @@ stdio函数的其他链接错误 sprintf()，可以向链接器选项中添加 l
 **（2）错误 LNK2019无法解析的外部符号 __imp____iob_func，该符号在函数 _ShowError 中被引用**  
 解决方法：  
 加入如下一行：  
-extern "C" { FILE __iob_func[3] = { *stdin,*stdout,*stderr }; }  
+```
+extern "C" { FILE __iob_func[3] = { *stdin,*stdout,*stderr }; } 
+```
 关于问题2的解释：  
 在visual studio 2015及以上版本中，stdin，stderr，stdout定义如下：
+```
 #define stdin（__acrt_iob_func（0））
 #define stdout（__acrt_iob_func（1））
 #define stderr（__acrt_iob_func（2））
+```
 但以前，它们被定义为：
+```
 #define stdin （& __ iob_func（）[0]）
-#define stdout（& __ iob_func（）[1]）$ b $ b #define stderr（& __ iob_func（）[2]）
+#define stdout（& __ iob_func（）[1]）
+#define stderr（& __ iob_func（）[2]）
+```
 所以现在没有定义__iob_func，导致在使用以前版本的visual studio编译的.lib文件时出现链接错误。
-为了解决这个问题，你可以尝试定义 __ iob_func（） $ c> {* stdin，* stdout，* stderr} 。
 
 **（3）错误 LNK2019无法解析的外部符号 _main，该符号在函数 "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ) 中被引用**  
 解决方法：  
@@ -87,7 +93,8 @@ extern "C" { FILE __iob_func[3] = { *stdin,*stdout,*stderr }; }
 
 
 ### 3、效果演示
-这里测试的是国产RPG巅峰之作，天地劫三部曲之《幽城幻剑录》的片头动画。
+**这里测试的是国产RPG巅峰之作，天地劫三部曲之《幽城幻剑录》的片头动画。**
+
 ![这里随便写文字](https://github.com/clw5180/SDL_ffmpeg_player/blob/master/screenshot/1.bmp)  
   
 
