@@ -87,6 +87,7 @@ extern "C" { FILE __iob_func[3] = { *stdin,*stdout,*stderr }; }
 
 
 ### 3、效果演示
+这里测试的是国产RPG巅峰之作，天地劫三部曲之《幽城幻剑录》的片头动画。
 ![这里随便写文字](https://github.com/clw5180/SDL_ffmpeg_player/blob/master/screenshot/1.bmp)  
   
 
