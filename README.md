@@ -57,7 +57,7 @@
 ### 2、注意事项
 由于原版程序是在VS2010的环境下调试的；我在使用VS2017调试的过程中遇到了几个问题，也在这里说一下相应的解决方法（ffmpeg, SDL）：
 
-**1、错误 LNK2019无法解析的外部符号 __imp__fprintf，该符号在函数 _ShowError 中被引用**  
+**（1）错误 LNK2019无法解析的外部符号 __imp__fprintf，该符号在函数 _ShowError 中被引用**  
 解决方法：  
 在程序中加入如下一行：  
 #pragma comment(lib, "legacy_stdio_definitions.lib")
@@ -65,7 +65,7 @@
 关于问题1的解释：  
 stdio函数的其他链接错误 sprintf()，可以向链接器选项中添加 legacy_stdio_definitions.lib 。
 
-**2、错误 LNK2019无法解析的外部符号 __imp____iob_func，该符号在函数 _ShowError 中被引用**  
+**（2）错误 LNK2019无法解析的外部符号 __imp____iob_func，该符号在函数 _ShowError 中被引用**  
 解决方法：  
 加入如下一行：  
 extern "C" { FILE __iob_func[3] = { *stdin,*stdout,*stderr }; }  
@@ -80,7 +80,7 @@ extern "C" { FILE __iob_func[3] = { *stdin,*stdout,*stderr }; }
 所以现在没有定义__iob_func，导致在使用以前版本的visual studio编译的.lib文件时出现链接错误。
 为了解决这个问题，你可以尝试定义 __ iob_func（） $ c> {* stdin，* stdout，* stderr} 。
 
-**3、错误 LNK2019无法解析的外部符号 _main，该符号在函数 "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ) 中被引用**  
+**（3）错误 LNK2019无法解析的外部符号 _main，该符号在函数 "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ) 中被引用**  
 解决方法：  
 1）程序中增加一行：#pragma comment(lib, "SDL2main.lib") // 程序与SDL有关，此方法未必有普适性，请具体问题具体对待
 2）将main函数形式修改为：int main(int argc, char* argv[]) {...}
@@ -88,7 +88,9 @@ extern "C" { FILE __iob_func[3] = { *stdin,*stdout,*stderr }; }
 
 ### 3、效果演示
 ![这里随便写文字](https://github.com/clw5180/SDL_ffmpeg_player/blob/master/screenshot/1.bmp)  
+  
 
 ![这里随便写文字](https://github.com/clw5180/SDL_ffmpeg_player/blob/master/screenshot/2.bmp)  
-
+  
+  
 ![这里随便写文字](https://github.com/clw5180/SDL_ffmpeg_player/blob/master/screenshot/3.png)
