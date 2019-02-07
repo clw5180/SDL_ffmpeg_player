@@ -1,0 +1,3 @@
+clw：视频时长(us) = 48090000
+clw：封装格式 = matroska,webm
+clw：视频宽高 = 640 * 272
