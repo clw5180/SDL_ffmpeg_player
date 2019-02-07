@@ -17,7 +17,7 @@ simplest_ffmpeg_player_su是一个真正意义上的视频播放器，能够播�
 
 在这里贴一下雷神的代码说明：  
 
-'''
+```
 /*  
  *最简单的基于FFmpeg的视频播放器2(SDL升级版)  
  *Simplest FFmpeg Player 2(SDL Update)  
@@ -55,7 +55,7 @@ simplest_ffmpeg_player_su是一个真正意义上的视频播放器，能够播�
  *SU（SDL Update）Version solved 2 problems above. It create a thread to send SDL  
  *Event every 40ms to tell the main loop to decode and show video frames.  
  */  
- '''
+```
  
 ### 2、注意事项
 由于原版程序是在VS2010的环境下调试的；我在使用VS2017调试的过程中遇到了几个问题，也在这里说一下相应的解决方法（ffmpeg, SDL）：
