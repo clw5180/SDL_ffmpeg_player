@@ -4,9 +4,9 @@
 在SDL游戏开发的过程中，我在SDL窗口中播放视频动画这个环节遇到了前所未有的障碍，在网上搜了很多教程，仍一无所获；万幸，我遇到了雷神，让我可以怀揣游戏开发的梦想继续前行。  
 
 三个文件夹分别对应三个项目：  
-simplest_ffmpeg_decoder是一个FFmpeg解码器，实现了将视频文件(如xxx.mp4/mkv/avi/rmvb/flv等)解封装后得到的H.264等视频压缩文件转化为YUV格式的视频像素数据；  
-simplest_video_play_sdl2是一个SDL2编写的YUV格式的视频播放器，实现了将YUV格式的视频像素数据送到显卡并通过SDL创建的窗口显示出来；  
-simplest_ffmpeg_player_su是一个真正意义上的视频播放器，能够播放多种格式如.mp4/mkv/avi/rmvb/flv等，是将上述两个项目进行有机结合而生成的。  
+* simplest_ffmpeg_decoder是一个FFmpeg解码器，实现了将视频文件(如xxx.mp4/mkv/avi/rmvb/flv等)解封装后得到的H.264等视频压缩文件转化为YUV格式的视频像素数据；  
+* simplest_video_play_sdl2是一个SDL2编写的YUV格式的视频播放器，实现了将YUV格式的视频像素数据送到显卡并通过SDL创建的窗口显示出来；  
+* simplest_ffmpeg_player_su是一个真正意义上的视频播放器，能够播放多种格式如.mp4/mkv/avi/rmvb/flv等，是将上述两个项目进行有机结合而生成的。  
 
 我这里主要是修正了雷神上传版本的代码会造成的视频卡顿现象，同时在一些地方做了注释；  
 
