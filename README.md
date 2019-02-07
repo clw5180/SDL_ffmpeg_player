@@ -59,15 +59,15 @@
 
 **1、错误 LNK2019无法解析的外部符号 __imp__fprintf，该符号在函数 _ShowError 中被引用**  
 解决方法：  
-在程序中加入如下一行：
+在程序中加入如下一行：  
 #pragma comment(lib, "legacy_stdio_definitions.lib")
 （或在链接器-》命令行 里加入legacy_stdio_definitions.lib）  
 关于问题1的解释：  
 stdio函数的其他链接错误 sprintf()，可以向链接器选项中添加 legacy_stdio_definitions.lib 。
 
 **2、错误 LNK2019无法解析的外部符号 __imp____iob_func，该符号在函数 _ShowError 中被引用**  
-解决方法：
-加入如下一行：
+解决方法：  
+加入如下一行：  
 extern "C" { FILE __iob_func[3] = { *stdin,*stdout,*stderr }; }  
 关于问题2的解释：  
 在visual studio 2015及以上版本中，stdin，stderr，stdout定义如下：
@@ -87,6 +87,8 @@ extern "C" { FILE __iob_func[3] = { *stdin,*stdout,*stderr }; }
 
 
 ### 3、效果演示
-![这里随便写文字](https://github.com/clw5180/SDL_ffmpeg_player/blob/master/screenshot/1.bmp)
-![这里随便写文字](https://github.com/clw5180/SDL_ffmpeg_player/blob/master/screenshot/2.bmp)
+![这里随便写文字](https://github.com/clw5180/SDL_ffmpeg_player/blob/master/screenshot/1.bmp)  
+
+![这里随便写文字](https://github.com/clw5180/SDL_ffmpeg_player/blob/master/screenshot/2.bmp)  
+
 ![这里随便写文字](https://github.com/clw5180/SDL_ffmpeg_player/blob/master/screenshot/3.png)
