@@ -55,17 +55,14 @@ simplest_ffmpeg_player_su是一个真正意义上的视频播放器，能够播�
 在程序中加入如下一行：
 #pragma comment(lib, "legacy_stdio_definitions.lib")
 （或在链接器-》命令行 里加入legacy_stdio_definitions.lib）
-
-**关于问题1的解释：**
+关于问题1的解释：
 stdio函数的其他链接错误 sprintf()，可以向链接器选项中添加 legacy_stdio_definitions.lib 。
-
 
 **2、错误 LNK2019无法解析的外部符号 __imp____iob_func，该符号在函数 _ShowError 中被引用**
 解决方法：
 加入如下一行：
 extern "C" { FILE __iob_func[3] = { *stdin,*stdout,*stderr }; }
-
-**关于问题2的解释**
+关于问题2的解释：
 在visual studio 2015及以上版本中，stdin，stderr，stdout定义如下：
 #define stdin（__acrt_iob_func（0））
 #define stdout（__acrt_iob_func（1））
@@ -75,7 +72,6 @@ extern "C" { FILE __iob_func[3] = { *stdin,*stdout,*stderr }; }
 #define stdout（& __ iob_func（）[1]）$ b $ b #define stderr（& __ iob_func（）[2]）
 所以现在没有定义__iob_func，导致在使用以前版本的visual studio编译的.lib文件时出现链接错误。
 为了解决这个问题，你可以尝试定义 __ iob_func（） $ c> {* stdin，* stdout，* stderr} 。
-
 
 **3、错误 LNK2019无法解析的外部符号 _main，该符号在函数 "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ) 中被引用**
 解决方法：
